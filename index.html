@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+  <title>Блэкджек</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="top">
+      <div class="bank">
+        <span class="label">Фишки</span>
+        <b id="chips">1 000</b>
+      </div>
+      <div class="meta">
+        <span id="stats">Раздач: 0, побед: 0</span>
+        <button id="reset" class="link">Сбросить</button>
+      </div>
+    </header>
+
+    <main class="table">
+      <section class="seat">
+        <div class="who">Дилер <span id="dealerTotal" class="total"></span></div>
+        <div class="hand" id="dealerHand" aria-label="Карты дилера"></div>
+      </section>
+
+      <div class="banner" id="banner" role="status" aria-live="polite"></div>
+
+      <section class="seat">
+        <div class="hand" id="playerHand" aria-label="Ваши карты"></div>
+        <div class="who">Вы <span id="playerTotal" class="total"></span><span id="betTag" class="bet"></span></div>
+      </section>
+    </main>
+
+    <footer class="controls">
+      <!-- 1. Ставки -->
+      <div id="betControls" class="group">
+        <div class="chip-row" id="chipRow"></div>
+        <div class="btn-row">
+          <button id="clear" class="btn ghost">Сбросить ставку</button>
+          <button id="deal" class="btn primary">Раздать</button>
+        </div>
+      </div>
+
+      <!-- 2. Ваш ход -->
+      <div id="playControls" class="group" hidden>
+        <div class="btn-row three">
+          <button id="hit" class="btn primary">Ещё</button>
+          <button id="stand" class="btn primary">Стоп</button>
+          <button id="double" class="btn ghost">Удвоить</button>
+        </div>
+      </div>
+
+      <!-- 3. Раунд закончен -->
+      <div id="doneControls" class="group" hidden>
+        <div class="btn-row">
+          <button id="next" class="btn primary wide">Новая раздача</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="fullscreen.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
